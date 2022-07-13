@@ -1,39 +1,24 @@
 #include <stdio.h>
-
-/**
- * main - program to generate a crackme password
- * Return: 0
- */
+#include <stdlib.h>
+#include <time.h>
 
 int main()
 {
-    char a[10],c[10],d;
-    int i,j,k=0;
-    printf("#Keygen by Emaye Andrew\n\n");
-    
-    while (k <5 || k >=10)
+    int counter = 0;
+    srandom(time(NULL));  // Correct seeding function for random()
+    char randChar;
+
+    int  passwordLength;
+
+    printf("Type in a password Length \n");
+    scanf("%d", &passwordLength);
+
+    while(counter < passwordLength)
     {
-          if (k !=0)
-             printf("\nThe username length should be 5 to 10 alphabets\n");
-        
-         printf("enter username: ");
-         scanf("%s",a);
-         k = strlen(a);
+        randChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"[random () % 62];
+        printf("%c", randChar);
+        counter++;
     }
-    
-    i = k-1;
-    j = 0;
-    
-    while (i >= 0)
-    {
-          c[j] = a[i]+i;
-          i--;
-          j++;
-    }
-    
-    c[j] = 0;
-    printf("\nThe password is %s\n",c);
-    printf("\nHit Enter to Exit\n");
-    getchar();
-    getchar();
-} 
+    printf("\n"); // Stops the output from being on the same line as the prompt
+    return 0;
+}
