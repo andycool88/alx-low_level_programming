@@ -1,10 +1,15 @@
 #include <stdio>
 
+/**
+ * main - program to generate a crackme password
+ * Return: 0
+ */
+
 int main()
 {
     char a[10],c[10],d;
     int i,j,k=0;
-    printf("#Keygen by b44nz0r\n\n");
+    printf("#Keygen by Emaye Andrew\n\n");
     
     while (k <5 || k >=10)
     {
