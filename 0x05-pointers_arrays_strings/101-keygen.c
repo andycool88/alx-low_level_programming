@@ -1,29 +1,38 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
+#define stopLimit 2645
+#define asciiStop 127
+#define asciiStart 32
+
 /**
- * main - A program to generate a random password
- * time included
- * Return: 0;
+ * main - generates a random password
+ *
+ * Return: 0 if success
+ *
  */
 
-int main()
+int main(void)
 {
-    int counter = 0;
-    srandom(time(NULL));  /* Correct seeding function for random()*/
-    char randChar;
+	char password[100];
+	int randValue, num = 0, i = 0;
 
-    int  passwordLength;
+	srand(time(NULL));
 
-    printf("Type in a password Length \n");
-    scanf("%d", &passwordLength);
+	while (num < stopLimit)
+	{
+		randValue = random() % asciiStop;
+		if (randValue > asciiStart)
+		{
+			password[i++] = randValue;
+			num += randValue;
+		}
+	}
 
-    while(counter < passwordLength)
-    {
-        randChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"[random () % 62];
-        printf("%c", randChar);
-        counter++;
-    }
-    printf("\n"); /* Stops the output from being on the same line as the prompt*/
-    return 0;
+	password[i++] = (2772 - num);
+	password[i] = '\0';
+	printf("%s", password);
+
+	return (0);
 }
+
