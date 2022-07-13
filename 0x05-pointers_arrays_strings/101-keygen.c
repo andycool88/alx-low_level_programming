@@ -1,11 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+/**
+ * main - A program to generate a random password
+ * time included
+ * Return: 0;
+ */
 
 int main()
 {
     int counter = 0;
-    srandom(time(NULL));  // Correct seeding function for random()
+    srandom(time(NULL));  /* Correct seeding function for random()*/
     char randChar;
 
     int  passwordLength;
@@ -19,6 +24,6 @@ int main()
         printf("%c", randChar);
         counter++;
     }
-    printf("\n"); // Stops the output from being on the same line as the prompt
+    printf("\n"); /* Stops the output from being on the same line as the prompt*/
     return 0;
 }
