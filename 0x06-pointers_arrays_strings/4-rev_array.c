@@ -27,5 +27,3 @@ void reverse_array(int *a, int n)
 		p--;
 	}
 }
-
-Task 4
